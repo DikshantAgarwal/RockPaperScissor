@@ -1,53 +1,83 @@
+var options=['rock','paper','scissors']
+var score=[0,0];
+var btns = Array.from(document.querySelectorAll('button'))
+var pl= document.getElementById('player')
+var cp=document.getElementById('computer');
+var rs=document.getElementById('result');
+var cscore=document.getElementById('computerScore');
+var pscore=document.getElementById('playerScore');
+var finalScore=document.getElementsByClassName('finalScore');
+
 function computerPlay(){
-    var options=['Rock','Paper','Scissors']
+    
     return options[Math.floor(Math.random()*3)]
     
 }
-function playerChoice(){
-    let playerSelection;
-    do{playerSelection = prompt("Whatchu gonna play? (Rock, Paper, or Scissors)").toLowerCase();
-      }while(playerSelection!='scissors'&& playerSelection != 'rock'&&playerSelection!='paper')
-     
-     return playerSelection;
-}
 
-function playRound(playerSelection,computerSelection){
-    var result
-    console.log(`Computer turn :-, ${computerSelection}`)
+function playRound(computerSelection,playerSelection){
+    pl.textContent=`you choose ${playerSelection}`
+    cp.textContent=`computer choose ${computerSelection}`
+   
+    
     if(playerSelection == computerSelection)
     {
-        console.log('Tie')
-        return playRound(playerChoice(),computerPlay())
+        console.log('tie') 
+        rs.textContent=`Game is Tie`
+        
     }
-    else if(playerSelection == 'rock' && computerSelection =='Scissors'|| playerSelection == 'paper' && computerSelection =='Rock' || playerSelection == 'scissors' && computerSelection =='Paper')
+    else if(playerSelection == 'rock' && computerSelection =='scissors'|| playerSelection == 'paper' && computerSelection =='rock' || playerSelection == 'scissors' && computerSelection =='paper')
     {
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`)
-        return true
+        score[0]++
+        rs.textContent=`You Win! ${playerSelection} beats ${computerSelection}`       
     }
     else 
     {
-        console.log(` You loose ${computerSelection} beats ${playerSelection}`);
-        return false
+        score[1]++
+        rs.textContent=` You loose ${computerSelection} beats ${playerSelection}`
     }
     
-
+   
 }
-
-function game(){
-    console.log('howmany times')
-    let score=[0,0];
-    for (var i = 0;i<5;i++){
-        playRound(playerChoice(),computerPlay())?score[0]++: score[1]++;
-        console.log(`Your score ${score[0]} and computer score is ${score[1]}`)
+function game(e){
+     playRound(computerPlay(),this.value)
+     pscore.textContent=`${score[0]}`;
+     cscore.textContent=`${score[1]}`;
+    
         
-    }
-    if(score[0]>score[1]){
-        console.log('You win')
-    }
-    else{
-        console.log('computer win')}
-    if(window.prompt('Do u want to play again') =='y' || window.prompt('Do u want to play again')=='Y') game();
+    if(score[0]==5|| score[1]==5){
+        var btn1=document.createElement("BUTTON");
+        btn1.innerHTML="Play Again"
+        btn1.setAttribute('id','reset')
+        playArena.append(btn1);
+        btn1.addEventListener('click',()=>window.location.reload());
+        if(score[0]>score[1]){
+           btns.forEach(btn=>btn.removeEventListener('click',game))
+           finalScore[0].textContent="You Won the Game"
+            }
+        else{
+            btns.forEach(btn=>btn.removeEventListener('click',game))
+            finalScore[0].textContent="Computer Won the Game"
+            
+        }
+      
     
+      finalScore[0].classList.add('result');   
+    }
+   
+    
+   
+}
+
+function removeFunction(e){
+ if(e.propertyName!="transform")return;   
+   this.classList.remove('result');
     
 }
+finalScore[0].addEventListener('transitionend',removeFunction);
+btns.forEach(btn=>btn.addEventListener('click',game))
+
+
+
+
+
 

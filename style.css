@@ -1,0 +1,85 @@
+html {
+  font-size: 30px;
+}
+
+body,html {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#playArena {   
+  max-width: 50vh;
+  min-height: 50vh;
+  border: 0.5rem solid black;    
+}
+
+button{
+  border: .2rem solid black;
+  border-radius: 10px;;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all 0.07s ease;
+  width: 10rem;
+  height: 10rem;     
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 5rem blue;
+}
+.scores,.stats,.finalScore{
+    margin-bottom: 150px;
+    text-align: center;
+    font-size: 02rem;
+    font-style: oblique;
+    font-weight: 800;
+    font-variant-caps:petite-caps;
+    text-shadow: 1px 2px;
+    
+}
+
+div#player{
+    text-align: center;
+    font-size: 02rem;
+    font-style: oblique;
+    font-weight: 800;
+    font-variant-caps:petite-caps;
+    text-shadow: 1px 2px orange;
+    
+}
+div#computer{
+    text-align: center;
+    font-size: 02rem;
+    font-style: oblique;
+    font-weight: 800;
+    font-variant-caps:petite-caps;
+    text-shadow: 1px 2px orange;
+    
+}
+div#result{
+    margin-top: 10vh;
+    text-align: center;
+    font-size: 02rem;
+    font-style: oblique;
+    font-weight: 800;
+    font-variant-caps:petite-caps;
+    text-shadow: 1px 2px orange;
+}
+.finalScore{
+    transition: all 2s;
+  
+}
+.result{
+    transform: scale(1.4);
+    text-shadow:2px 2px blue; 
+}
+#reset{
+    margin-left:20vh; 
+    border-radius: 40px;
+}
+
+

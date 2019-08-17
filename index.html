@@ -1,9 +1,32 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
         
     </head>
     <body>
-
+        <div id="playArena">
+            <button  id='rock' value='rock'>Rock</button>
+            <button id = 'paper' value='paper'>Paper</button>
+            <button id= 'scissors'value='scissors'>Scissors</button> 
+            <div class="scores">
+                Computer:
+                <span id="computerScore">0</span>
+                Player:
+                <span id="playerScore">0</span>
+            </div>
+            <div class="stats">
+                Stats:
+                <div id = 'player'> </div>
+                <div id='computer'> </div>
+                <div id='result'> </div>
+            </div> 
+            <div class="finalScore">
+            </div> 
+            
+            
+        </div>     
         <script src="app.js"></script>
     </body>
 </html>
