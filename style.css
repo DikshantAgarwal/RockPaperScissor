@@ -1,5 +1,5 @@
 html {
-  font-size: 30px;
+  font-size: 12px;
 }
 
 body,html {
@@ -12,33 +12,32 @@ body,html {
 }
 
 #playArena {   
-  max-width: 50vh;
-  min-height: 50vh;
-  border: 0.5rem solid black;    
+  max-width: 100vh;
+  min-height: 10vh;
+  border: 0.2rem solid black;    
 }
 
 button{
-  border: .2rem solid black;
+  border: .1rem solid black;
   border-radius: 10px;;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all 0.07s ease;
   width: 10rem;
-  height: 10rem;     
+  height: 5rem;     
   text-align: center;
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 5rem blue;
 }
 .scores,.stats,.finalScore{
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     text-align: center;
     font-size: 02rem;
     font-style: oblique;
     font-weight: 800;
     font-variant-caps:petite-caps;
-    text-shadow: 1px 2px;
     
 }
 
@@ -75,7 +74,7 @@ div#result{
 }
 .result{
     transform: scale(1.4);
-    text-shadow:2px 2px blue; 
+    text-shadow:2px 2px orange; 
 }
 #reset{
     margin-left:20vh; 
